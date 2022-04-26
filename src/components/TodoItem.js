@@ -1,6 +1,16 @@
 import React from "react"
 
 class TodoItem extends React.Component {
+  state = {
+    editing: false,
+  }
+
+  handleEditing = () => {
+    this.setState({
+      editing: true,
+    })
+  }
+
   render() {
     const completedStyle = {
       fontStyle: "italic",
@@ -9,9 +19,19 @@ class TodoItem extends React.Component {
       textDecoration: "line-through",
     }
 
+    let viewMode = {}
+let editMode = {}
+
+if (this.state.editing) {
+  viewMode.display = "none"
+} else {
+  editMode.display = "none"
+}
+
     return(
       <li>
-      <input
+        <div div onDoubleClick={this.handleEditing} style={viewMode}>
+        <input
         type="checkbox"
         checked={this.props.todo.completed}
         onChange={() => this.props.handleChangeProps(this.props.todo.id)}
@@ -22,6 +42,13 @@ class TodoItem extends React.Component {
       <span style={this.props.todo.completed ? completedStyle : null}>
          {this.props.todo.title}
       </span>
+        </div>
+        <input
+          type="text"
+          style={editMode}
+          className={styles.textInput}
+          value={title}
+/>
       </li>
     )
   }
