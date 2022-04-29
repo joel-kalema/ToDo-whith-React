@@ -1,29 +1,23 @@
+/* eslint-disable no-console */
 /* eslint-disable react/state-in-constructor */
-/* eslint-disable no-undef */
-/* eslint-disable react/button-has-type */
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/button-has-type */
 import React from 'react';
+import styles from './TodoItem.module.css';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class TodoItem extends React.Component {
   state = {
     editing: false,
   }
 
   handleEditing = () => {
-    this.setState({
-      editing: true,
-    });
+    console.log('edit mode activated');
   }
 
   render() {
-    const completedStyle = {
-      fontStyle: 'italic',
-      color: '#595959',
-      opacity: 0.4,
-      textDecoration: 'line-through',
-    };
-
     const viewMode = {};
     const editMode = {};
 
@@ -32,29 +26,27 @@ class TodoItem extends React.Component {
     } else {
       editMode.display = 'none';
     }
-
+    const completedStyle = {
+      fontStyle: 'italic',
+      color: '#595959',
+      opacity: 0.4,
+      textDecoration: 'line-through',
+    };
+    const { completed, id, title } = this.props.todo;
     return (
-      <li>
-        <div div onDoubleClick={this.handleEditing} style={viewMode}>
+      <li className={styles.item}>
+        <div onDoubleClick={this.handleEditing}>
           <input
             type="checkbox"
-            // eslint-disable-next-line react/prop-types
-            checked={this.props.todo.completed}
-            onChange={() => this.props.handleChangeProps(this.props.todo.id)}
+            className={styles.checkbox}
+            checked={completed}
+            onChange={() => this.props.handleChangeProps(id)}
           />
-          <button onClick={() => this.props.deleteTodoProps(this.props.todo.id)}>
-            Delete
-          </button>
-          <span style={this.props.todo.completed ? completedStyle : null}>
-            {this.props.todo.title}
-          </span>
+          <button onClick={() => this.props.deleteTodoProps(id)}>Delete</button>
+          <span style={completed ? completedStyle : null}>{title}</span>
         </div>
-        <input
-          type="text"
-          style={editMode}
-          className={styles.textInput}
-          value={title}
-        />
+        <input type="text" style={editMode} className={styles.textInput} />
+
       </li>
     );
   }

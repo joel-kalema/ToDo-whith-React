@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
@@ -9,12 +10,7 @@ class TodosList extends React.Component {
     return (
       <ul>
         {this.props.todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleChangeProps={this.props.handleChangeProps}
-            deleteTodoProps={this.props.deleteTodoProps}
-          />
+          <TodoItem key={todo.id} todo={todo} handleChangeProps={this.props.handleChangeProps} deleteTodoProps={this.props.deleteTodoProps} />
         ))}
       </ul>
     );

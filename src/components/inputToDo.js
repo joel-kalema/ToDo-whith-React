@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/state-in-constructor */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
@@ -12,7 +14,7 @@ class InputTodo extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  };
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -28,15 +30,16 @@ class InputTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="form-container">
         <input
           type="text"
-          placeholder="Add Todo..."
-          name="title"
+          className="input-text"
+          placeholder="Add todo..."
           value={this.state.title}
+          name="title"
           onChange={this.onChange}
         />
-        <button type="button">Submit</button>
+        <button className="input-submit">Submit</button>
       </form>
     );
   }
