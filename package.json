@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
+    "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/plugin-syntax-jsx": "^7.16.7",
     "@babel/preset-env": "^7.16.11",
@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
