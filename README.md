@@ -8,7 +8,7 @@
 ## Built With
 
 - Major languages
-- Frameworks
+- REACT
 - Technologies used
 
 ## Live Demo (if available)
