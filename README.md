@@ -9,7 +9,7 @@
 
 - Major languages
 - REACT
-- Technologies used
+- CSS
 
 ## Live Demo (if available)
 
